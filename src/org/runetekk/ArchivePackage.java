@@ -119,9 +119,12 @@ public final class ArchivePackage {
                         System.arraycopy(entryData[i], 0, src, 0, entryData[i].length);
                     } else {
                         src = new byte[uSizes[i]];
-                        DataInputStream is = new DataInputStream(new BZip2CompressorInputStream(new ByteArrayInputStream(archiveData, archiveOffsets[i], cSizes[i])));
-                        is.readFully(src);
-                        is.close();             
+                        if(isCompressed) {
+                            System.arraycopy(archiveData, archiveOffsets[i], src, 0, uSizes[i]);
+                        } else {
+                            DataInputStream is = new DataInputStream(new BZip2CompressorInputStream(new ByteArrayInputStream(archiveData, archiveOffsets[i], cSizes[i])));
+                            is.readFully(src);
+                        }
                     }
                     return src;
                 }
