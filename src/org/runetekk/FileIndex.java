@@ -88,6 +88,13 @@ public final class FileIndex {
         }
     }
     
+    /**
+     * Writes an archive to the cache at the specified id.
+     * @param src The source of the file to encode.
+     * @param id The id of the file to encode the file as.
+     * @param len The length of the file.
+     * @return If writing the file to this {@link FileIndex} was successful.
+     */
     public synchronized boolean put(byte src[], int id, int len) {
         boolean successful = put(src, id, len, true);
         if(!successful)

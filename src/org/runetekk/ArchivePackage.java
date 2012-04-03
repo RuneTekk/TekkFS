@@ -10,6 +10,9 @@ import java.io.IOException;
  * ArchivePackage.java
  * @version 1.0.0
  * @author RuneTekk Development (SiniSoul)
+ * 
+ * This class is was only meant for read only purposes and has been optimized
+ * for reading the sources of archive packages.
  */
 public final class ArchivePackage {
     
